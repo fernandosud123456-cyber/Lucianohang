@@ -6,31 +6,40 @@
     <title>Luciano Hang | Trajetória Empresarial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --blue: #002776;
-            --blue-dark: #001a4d;
-            --green: #009c3b;
-            --green-dark: #007a2f;
-            --green-suit: #006633;
-            --yellow: #ffdf00;
+            --brand-blue: #002776;
+            --brand-blue-dark: #001a4d;
+            --brand-green: #009c3b;
+            --brand-green-dark: #007a2f;
+            --brand-green-suit: #0a5c36;
+            --brand-yellow: #ffdf00;
             --white: #ffffff;
-            --black: #1a1a1a;
-            --gray: #f5f5f5;
+            --black: #0a0a0a;
+            --cream: #faf8f5;
+            --gold: #c9a227;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--gray);
+            background: var(--cream);
             color: var(--black);
             overflow-x: hidden;
         }
         
-        /* Background Pattern */
+        /* Elegant Background */
         body::before {
             content: '';
             position: fixed;
@@ -38,346 +47,428 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 40px,
-                rgba(0,156,59,0.02) 40px,
-                rgba(0,156,59,0.02) 80px
-            );
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0,39,118,0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,156,59,0.03) 0%, transparent 50%);
             z-index: -1;
             pointer-events: none;
         }
         
-        /* Header */
+        /* Premium Header */
         header {
-            background: linear-gradient(90deg, var(--blue), var(--blue-dark));
-            padding: 1rem 5%;
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
+            padding: 1.2rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 5px solid var(--yellow);
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
+            border-bottom: 3px solid var(--brand-yellow);
+            backdrop-filter: blur(10px);
         }
         
-        .logo-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
             color: var(--white);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         
-        .logo-text span { color: var(--yellow); }
+        .logo span {
+            color: var(--brand-yellow);
+        }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
         
         nav a {
-            color: var(--white);
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
+            font-weight: 500;
             font-size: 0.75rem;
-            padding: 0.4rem 0.8rem;
-            border: 2px solid transparent;
-            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-yellow);
+            transition: width 0.3s;
         }
         
         nav a:hover {
-            border-color: var(--yellow);
-            color: var(--yellow);
+            color: var(--brand-yellow);
         }
         
-        /* Hero Section */
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section - Luxury */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(180deg, var(--blue) 0%, var(--blue-dark) 100%);
+            background: linear-gradient(180deg, var(--brand-blue) 0%, var(--brand-blue-dark) 60%, #000814 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 6rem 1rem 4rem;
+            padding: 8rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
         
-        /* Celebration Band */
-        .celebration-band {
+        /* Animated Background Elements */
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 12%;
-            background: var(--yellow);
-            color: var(--blue);
-            padding: 0.7rem 0;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            white-space: nowrap;
-            animation: bandSlide 15s linear infinite;
+            top: -50%;
+            left: -50%;
             width: 200%;
+            height: 200%;
+            background: 
+                repeating-linear-gradient(
+                    60deg,
+                    transparent,
+                    transparent 60px,
+                    rgba(255,223,0,0.02) 60px,
+                    rgba(255,223,0,0.02) 120px
+                );
+            animation: diagonalMove 30s linear infinite;
         }
         
-        @keyframes bandSlide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        @keyframes diagonalMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(120px, 120px); }
         }
         
-        /* Avatar Container */
-        .avatar-wrapper {
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--brand-yellow);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite;
+        }
+        
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 70%; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 80%; animation-delay: 3s; }
+        .particle:nth-child(6) { left: 90%; animation-delay: 5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+        
+        /* Premium Avatar */
+        .avatar-container {
             position: relative;
-            margin: 2rem 0;
+            margin: 3rem 0;
+            animation: fadeInUp 1s ease-out;
         }
         
-        /* Avatar */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .avatar {
             position: relative;
-            width: 160px;
-            height: 260px;
-            animation: walkBounce 0.7s ease-in-out infinite;
+            width: 200px;
+            height: 320px;
+            animation: walkCycle 1s ease-in-out infinite;
         }
         
-        @keyframes walkBounce {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-12px) rotate(2deg); }
+        @keyframes walkCycle {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
         }
         
-        /* Seller Head */
-        .seller-head {
-            position: absolute;
-            width: 65px;
-            height: 75px;
-            background: linear-gradient(180deg, #e8bda5, #d4a78d);
-            border-radius: 35px 35px 25px 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 15px;
-            border: 2px solid var(--blue);
-        }
-        
-        .seller-hair {
+        /* Head */
+        .head {
             position: absolute;
             width: 75px;
-            height: 22px;
-            background: #1a1a1a;
-            border-radius: 40px 40px 0 0;
-            top: 10px;
+            height: 85px;
+            background: linear-gradient(180deg, #edd5c5, #d4b8a5);
+            border-radius: 40px 40px 30px 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hair {
+            position: absolute;
+            width: 85px;
+            height: 28px;
+            background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+            border-radius: 45px 45px 0 0;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
         }
         
-        .seller-glasses {
+        .glasses {
             position: absolute;
-            width: 50px;
-            height: 14px;
-            background: #1a1a1a;
-            top: 35px;
+            width: 55px;
+            height: 16px;
+            background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
+            top: 42px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 3px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
         
-        .seller-smile {
+        .smile {
             position: absolute;
-            width: 30px;
+            width: 28px;
             height: 10px;
             border: 2px solid #c8102e;
             border-top: none;
             border-left: none;
             border-radius: 0 0 50% 0;
-            top: 52px;
+            top: 65px;
             left: 50%;
             transform: translateX(-50%) rotate(10deg);
         }
         
-        /* Seller Body - Green Suit */
-        .seller-body-suit {
+        /* Body - Premium Green Suit */
+        .body {
             position: absolute;
-            width: 95px;
-            height: 130px;
-            background: linear-gradient(180deg, var(--green-suit), #005522);
-            border-radius: 15px 15px 8px 8px;
+            width: 110px;
+            height: 150px;
+            background: linear-gradient(180deg, var(--brand-green-suit), #073d26);
+            border-radius: 20px 20px 10px 10px;
             left: 50%;
             transform: translateX(-50%);
-            bottom: 55px;
-            border: 2px solid var(--green-dark);
+            bottom: 70px;
+            box-shadow: 
+                inset 0 -5px 15px rgba(0,0,0,0.2),
+                0 10px 30px rgba(0,0,0,0.3);
         }
         
-        .seller-shirt {
+        .shirt {
             position: absolute;
-            width: 95px;
-            height: 75px;
-            background: #f0f0f0;
-            border-radius: 12px 12px 0 0;
+            width: 110px;
+            height: 85px;
+            background: linear-gradient(180deg, #ffffff, #f0f0f0);
+            border-radius: 18px 18px 0 0;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
-        .seller-tie {
-            width: 10px;
-            height: 45px;
-            background: #c8102e;
+        .tie {
+            width: 12px;
+            height: 55px;
+            background: linear-gradient(180deg, #c8102e, #9a0d24);
             clip-path: polygon(30% 0, 70% 0, 100% 100%, 0% 100%);
         }
         
         /* Arms */
-        .seller-arm {
+        .arm {
             position: absolute;
-            width: 20px;
-            height: 75px;
-            background: var(--green-suit);
+            width: 24px;
+            height: 85px;
+            background: linear-gradient(180deg, var(--brand-green-suit), #073d26);
+            border-radius: 12px;
+            top: 95px;
+            transform-origin: top center;
+        }
+        
+        .arm.left {
+            left: 10px;
+            animation: swingLeft 1s ease-in-out infinite;
+        }
+        
+        .arm.right {
+            right: 10px;
+            animation: swingRight 1s ease-in-out infinite;
+        }
+        
+        @keyframes swingLeft {
+            0%, 100% { transform: rotate(15deg); }
+            50% { transform: rotate(-15deg); }
+        }
+        
+        @keyframes swingRight {
+            0%, 100% { transform: rotate(-15deg); }
+            50% { transform: rotate(15deg); }
+        }
+        
+        /* Legs */
+        .leg {
+            position: absolute;
+            width: 32px;
+            height: 70px;
+            background: linear-gradient(180deg, var(--brand-green-suit), #073d26);
+            bottom: 0;
             border-radius: 10px;
-            top: 80px;
-            border: 1px solid var(--green-dark);
-        }
-        
-        .seller-arm.left {
-            left: 5px;
-            animation: armSwing 0.7s ease-in-out infinite;
             transform-origin: top center;
         }
         
-        .seller-arm.right {
-            right: 5px;
-            animation: armSwing 0.7s ease-in-out infinite reverse;
-            transform-origin: top center;
+        .leg.left {
+            left: 32px;
+            animation: walkLeft 1s ease-in-out infinite;
         }
         
-        @keyframes armSwing {
+        .leg.right {
+            right: 32px;
+            animation: walkRight 1s ease-in-out infinite;
+        }
+        
+        @keyframes walkLeft {
             0%, 100% { transform: rotate(12deg); }
             50% { transform: rotate(-12deg); }
         }
         
-        /* Legs */
-        .seller-leg {
+        @keyframes walkRight {
+            0%, 100% { transform: rotate(-12deg); }
+            50% { transform: rotate(12deg); }
+        }
+        
+        .shoe {
             position: absolute;
-            width: 28px;
-            height: 60px;
-            background: var(--green-suit);
-            bottom: 0;
-            border-radius: 8px;
+            width: 42px;
+            height: 16px;
+            background: #0a0a0a;
+            border-radius: 10px 10px 5px 5px;
+            bottom: -4px;
         }
         
-        .seller-leg.left {
-            left: 28px;
-            animation: legWalk 0.7s ease-in-out infinite;
-            transform-origin: top center;
-        }
+        .leg.left .shoe { left: -5px; }
+        .leg.right .shoe { right: -5px; }
         
-        .seller-leg.right {
-            right: 28px;
-            animation: legWalk 0.7s ease-in-out infinite reverse;
-            transform-origin: top center;
-        }
-        
-        @keyframes legWalk {
-            0%, 100% { transform: rotate(10deg); }
-            50% { transform: rotate(-10deg); }
-        }
-        
-        .seller-shoe {
-            position: absolute;
-            width: 38px;
-            height: 14px;
-            background: #1a1a1a;
-            border-radius: 8px 8px 4px 4px;
-            bottom: -3px;
-        }
-        
-        .seller-leg.left .seller-shoe { left: -5px; }
-        .seller-leg.right .seller-shoe { right: -5px; }
-        
-        /* Name Container with Rope */
+        /* Name Section */
         .name-section {
             position: relative;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
         
         .name-section::before {
             content: '';
             position: absolute;
-            left: -60px;
+            left: -80px;
             top: 50%;
             transform: translateY(-50%);
-            width: 50px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--yellow), var(--green));
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--brand-yellow));
             border-radius: 2px;
-            animation: ropePulse 0.5s ease-in-out infinite;
+            animation: pullLine 1s ease-in-out infinite;
         }
         
-        @keyframes ropePulse {
-            0%, 100% { transform: translateY(-50%) scaleX(1); }
-            50% { transform: translateY(-50%) scaleX(1.1); }
+        @keyframes pullLine {
+            0%, 100% { transform: translateY(-50%) scaleX(0.8); }
+            50% { transform: translateY(-50%) scaleX(1.2); }
         }
         
-        .giant-name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 5rem;
-            color: var(--yellow);
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            color: var(--brand-yellow);
             text-shadow: 
-                3px 3px 0 var(--green),
-                6px 6px 0 var(--blue),
-                10px 10px 25px rgba(0,0,0,0.4);
-            letter-spacing: 6px;
-            animation: nameFloat 0.7s ease-in-out infinite;
+                3px 3px 0 var(--brand-green),
+                6px 6px 0 var(--brand-blue),
+                12px 12px 30px rgba(0,0,0,0.4);
+            letter-spacing: 8px;
+            line-height: 1;
         }
         
-        @keyframes nameFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-        
-        .giant-name span {
+        .name span {
             color: var(--white);
             display: block;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
+            letter-spacing: 15px;
+            margin-top: 0.2rem;
         }
         
-        .hero-tagline {
-            font-size: 1.1rem;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 1rem;
-            opacity: 0.9;
-        }
-        
-        .hero-cta {
-            margin-top: 2rem;
-            background: var(--green);
-            color: var(--white);
-            padding: 1rem 2.5rem;
+        .tagline {
             font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, var(--brand-green), var(--brand-green-dark));
+            color: var(--white);
+            padding: 1.2rem 3.5rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 3px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s;
+            transition: all 0.4s;
+            box-shadow: 0 5px 20px rgba(0,156,59,0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
         
-        .hero-cta:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 25px rgba(0,156,59,0.5);
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,156,59,0.4);
         }
         
-        /* Sections Common */
+        /* Section Styles */
         section {
-            padding: 4rem 8%;
+            padding: 6rem 8%;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
         
         .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
-            color: var(--blue);
-            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--brand-blue);
             position: relative;
             display: inline-block;
         }
@@ -385,11 +476,12 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -6px;
-            left: 0;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 60px;
-            height: 4px;
-            background: var(--green);
+            height: 3px;
+            background: var(--brand-green);
         }
         
         /* Origins Section */
@@ -397,93 +489,129 @@
             background: var(--white);
         }
         
-        .origins-grid {
+        .origins-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .origins-text p {
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.9;
             color: #333;
+            margin-bottom: 1.5rem;
         }
         
-        .origins-quote {
-            background: linear-gradient(135deg, var(--yellow), #ffe066);
-            padding: 1.5rem;
-            border-left: 4px solid var(--blue);
+        .quote-box {
+            background: linear-gradient(135deg, var(--brand-yellow), #ffe066);
+            padding: 2rem;
+            border-left: 4px solid var(--brand-blue);
+            margin-top: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             font-weight: 700;
             font-style: italic;
-            margin-top: 1.5rem;
+            color: var(--brand-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        .origins-images {
+        .origins-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
+            gap: 1rem;
         }
         
-        .origins-img {
+        .gallery-img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s;
+            border-radius: 12px;
+            transition: all 0.4s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
-        .origins-img:hover {
+        .gallery-img:hover {
             transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
         
-        .origins-img.full {
+        .gallery-img.large {
             grid-column: span 2;
+            height: 220px;
         }
         
         /* Timeline Section */
+        .timeline-section {
+            background: linear-gradient(180deg, #f8f6f3, var(--cream));
+        }
+        
         .timeline {
-            background: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
             position: relative;
-            padding-left: 30px;
-            border-left: 3px solid var(--green);
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--brand-green), var(--brand-blue));
         }
         
         .timeline-item {
-            margin-bottom: 2rem;
             position: relative;
+            margin-bottom: 3rem;
+            padding: 1.5rem 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -38px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background: var(--green);
+            left: -43px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--brand-green);
+            border: 4px solid var(--white);
             border-radius: 50%;
-            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--brand-green);
         }
         
         .timeline-year {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
-            color: var(--blue);
+            font-size: 1.8rem;
+            color: var(--brand-blue);
+            margin-bottom: 0.5rem;
         }
         
         .timeline-text {
             font-size: 0.95rem;
-            line-height: 1.6;
-            margin-top: 0.3rem;
+            line-height: 1.7;
             color: #444;
         }
         
         /* Achievements */
         .achievements {
-            background: var(--blue);
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
             color: var(--white);
+            text-align: center;
         }
         
         .achievements .section-title {
@@ -492,153 +620,93 @@
         
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         
         .achievement-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 2px solid var(--yellow);
-            text-align: center;
-            transition: all 0.3s;
+            background: rgba(255,255,255,0.08);
+            padding: 2.5rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s;
         }
         
         .achievement-card:hover {
-            transform: translateY(-8px);
             background: rgba(255,255,255,0.15);
+            transform: translateY(-10px);
+            border-color: var(--brand-yellow);
         }
         
         .achievement-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.8rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
         
         .achievement-number {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: var(--yellow);
+            font-size: 3rem;
+            color: var(--brand-yellow);
+            line-height: 1;
         }
         
         .achievement-label {
             font-size: 0.85rem;
             text-transform: uppercase;
-            opacity: 0.9;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-top: 0.5rem;
         }
         
         /* Social Projects */
-        .social-projects {
+        .social-section {
             background: var(--white);
         }
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .project-card {
-            border: 2px solid var(--green);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
         }
         
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
         
-        .project-img {
+        .project-image {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
         }
         
         .project-content {
-            padding: 1.2rem;
+            padding: 1.8rem;
+            background: var(--white);
         }
         
         .project-title {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
-            color: var(--blue);
-            margin-bottom: 0.5rem;
+            color: var(--brand-blue);
+            margin-bottom: 0.8rem;
         }
         
         .project-desc {
             font-size: 0.9rem;
-            color: #555;
-            line-height: 1.5;
-        }
-        
-        /* Taquara Section */
-        .taquara {
-            background: linear-gradient(135deg, var(--green), var(--green-dark));
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .taquara .section-title {
-            color: var(--white);
-            display: block;
-        }
-        
-        .taquara-date {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: var(--yellow);
-            margin: 1.5rem 0;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .taquara-info {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-        
-        .taquara-item {
-            text-align: center;
-        }
-        
-        .taquara-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .taquara-text {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        
-        .taquara-cta {
-            margin-top: 2.5rem;
-            background: var(--yellow);
-            color: var(--blue);
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-        
-        .taquara-cta:hover {
-            transform: scale(1.08);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            color: #666;
+            line-height: 1.6;
         }
         
         /* RS Help */
@@ -654,151 +722,211 @@
         .rs-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .rs-text p {
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
         
         .rs-stats {
             display: flex;
             gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            margin-top: 2.5rem;
         }
         
         .rs-stat {
-            background: var(--green);
-            padding: 1.2rem;
-            border-radius: 10px;
+            background: var(--brand-green);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
             text-align: center;
-            min-width: 100px;
+            min-width: 120px;
         }
         
         .rs-stat-number {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--yellow);
+            font-size: 2.2rem;
+            color: var(--brand-yellow);
         }
         
         .rs-stat-label {
             font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
             opacity: 0.9;
+            margin-top: 0.3rem;
         }
         
-        .rs-images {
+        .rs-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
+            gap: 1rem;
         }
         
         .rs-img {
             width: 100%;
-            height: 130px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid var(--white);
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Taquara Section */
+        .taquara {
+            background: linear-gradient(135deg, var(--brand-green), var(--brand-green-dark));
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 8%;
+        }
+        
+        .taquara .section-title {
+            color: var(--white);
+        }
+        
+        .taquara-date {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--brand-yellow);
+            margin: 2rem 0;
+            letter-spacing: 5px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        
+        .taquara-desc {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .taquara-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .taquara-item {
+            text-align: center;
+        }
+        
+        .taquara-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .taquara-text {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         /* Footer */
         footer {
             background: var(--black);
             color: var(--white);
-            padding: 2rem 5%;
+            padding: 3rem 8%;
             text-align: center;
-            border-top: 6px solid var(--green);
+            border-top: 4px solid var(--brand-green);
         }
         
         .footer-logo {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 4px;
         }
         
         .footer-logo span {
-            color: var(--yellow);
+            color: var(--brand-yellow);
         }
         
-        .footer-copy {
+        .footer-text {
             margin-top: 1rem;
             font-size: 0.85rem;
-            opacity: 0.7;
+            opacity: 0.6;
         }
         
-        /* Responsive - Mobile First */
-        @media (max-width: 768px) {
-            header {
-                padding: 0.8rem 5%;
-            }
-            
-            .logo-text {
-                font-size: 1.3rem;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
+        /* Responsive */
+        @media (max-width: 900px) {
             .hero {
-                padding: 5rem 1rem 3rem;
+                padding: 7rem 1.5rem 3rem;
             }
             
-            .giant-name {
-                font-size: 3rem;
+            .name {
+                font-size: 3.5rem;
             }
             
-            .giant-name span {
-                font-size: 2rem;
+            .name span {
+                font-size: 2.2rem;
+                letter-spacing: 8px;
             }
             
             .name-section::before {
                 display: none;
             }
             
-            .celebration-band {
-                font-size: 1rem;
-                top: 8%;
-            }
-            
             .avatar {
-                transform: scale(0.75);
+                transform: scale(0.8);
             }
             
-            section {
-                padding: 3rem 5%;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .origins-grid,
+            .origins-content,
             .rs-content {
                 grid-template-columns: 1fr;
             }
             
-            .origins-images {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .taquara-date {
+            .section-title {
                 font-size: 2rem;
             }
             
-            .taquara-info {
-                gap: 1.5rem;
+            section {
+                padding: 4rem 5%;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .name span {
+                font-size: 1.6rem;
+                letter-spacing: 5px;
+            }
+            
+            .tagline {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+            }
+            
+            .achievement-number {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header Premium -->
     <header>
-        <div class="logo-text">LUCIANO <span>HANG</span></div>
+        <div class="logo">LUCIANO <span>HANG</span></div>
         <nav>
             <ul>
                 <li><a href="#origins">Origens</a></li>
@@ -811,99 +939,98 @@
     </header>
 
     <main>
-        <!-- Hero com Avatar -->
+        <!-- Hero Section -->
         <section class="hero">
-            <!-- Celebration Band -->
-            <!-- <div class="celebration-band">
-                ★ VOCÊ NÃO PAGA ANUIDADE ★ VOCÊ NÃO PAGA ANUIDADE ★ VOCÊ NÃO PAGA ANUIDADE ★
-            </div> -->
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
             
-            <div class="avatar-wrapper">
+            <div class="avatar-container">
                 <div class="avatar">
-                    <!-- Cabeca -->
-                    <div class="seller-head">
-                        <div class="seller-hair"></div>
-                        <div class="seller-glasses"></div>
-                        <div class="seller-smile"></div>
+                    <div class="head">
+                        <div class="hair"></div>
+                        <div class="glasses"></div>
+                        <div class="smile"></div>
                     </div>
-                    
-                    <!-- Corpinho Verde -->
-                    <div class="seller-body-suit">
-                        <div class="seller-shirt">
-                            <div class="seller-tie"></div>
+                    <div class="body">
+                        <div class="shirt">
+                            <div class="tie"></div>
                         </div>
                     </div>
-                    
-                    <!-- Bracos -->
-                    <div class="seller-arm left"></div>
-                    <div class="seller-arm right"></div>
-                    
-                    <!-- Pernas -->
-                    <div class="seller-leg left">
-                        <div class="seller-shoe"></div>
-                    </div>
-                    <div class="seller-leg right">
-                        <div class="seller-shoe"></div>
-                    </div>
+                    <div class="arm left"></div>
+                    <div class="arm right"></div>
+                    <div class="leg left"><div class="shoe"></div></div>
+                    <div class="leg right"><div class="shoe"></div></div>
                 </div>
             </div>
             
             <div class="name-section">
-                <div class="giant-name">
+                <div class="name">
                     LUCIANO
                     <span>HANG</span>
                 </div>
             </div>
             
-            <p class="hero-tagline">Empreendedor Brasileiro</p>
-            <a href="#origins" class="hero-cta">CONHEÇA A JORNADA</a>
+            <p class="tagline">Empreendedor Brasileiro</p>
+            <a href="#origins" class="cta-button">Descubra a Jornada</a>
         </section>
 
-        <!-- Origens / Infancia -->
+        <!-- Origins Section -->
         <section class="origins" id="origins">
-            <h2 class="section-title">ORIGENS</h2>
-            <div class="origins-grid">
+            <div class="section-header">
+                <h2 class="section-title">Origens</h2>
+            </div>
+            <div class="origins-content">
                 <div class="origins-text">
-                    <p>Luciano Hang nasceu em <strong>Brusque, Santa Catarina</strong>, em 11 de outubro de 1962. Filho de Regina e Luís Hang, dois trabalhadores dedicado da indústria têxtil, ele cresceu aprendendo o valor do trabalho duro desde cedo.</p>
-                    <p>Seus pais passaram mais de 40 anos na <strong>Fábrica de Tecidos Carlos Renaux</strong>, onde Luciano iniciou sua primeira carteira de trabalho. A determinação e persistência que viu em sua família tornaram-se a base de sua filosofia de vida.</p>
-                    <div class="origins-quote">
+                    <p>Luciano Hang nasceu em <strong>Brusque, Santa Catarina</strong>, em 11 de outubro de 1962. Filho de Regina e Luís Hang, dois trabalhadores dedicados da indústria têxtil, ele cresceu aprendendo desde cedo o valor do trabalho duro e da perseverança.</p>
+                    <p>Seus pais passaram mais de <strong>40 anos</strong> na Fábrica de Tecidos Carlos Renaux, onde Luciano iniciou sua primeira carteira de trabalho. A determinação e o exemplo de sua família tornaram-se a base de toda sua filosofia de vida e negócio.</p>
+                    <div class="quote-box">
                         "O Brasil que queremos só depende de nós. Cada brasileiro que abre o próprio negócio está construindo um país melhor."
                     </div>
                 </div>
-                <div class="origins-images">
-                    <img src="Assets/download (1).jpg" alt="Luciano Hang" class="origins-img">
-                    <img src="Assets/download (2).jpg" alt="Luciano Hang" class="origins-img">
-                    <img src="Assets/download (3).jpg" alt="Luciano Hang" class="origins-img full">
+                <div class="origins-gallery">
+                    <img src="Assets/download (1).jpg" alt="Luciano Hang" class="gallery-img">
+                    <img src="Assets/download (2).jpg" alt="Luciano Hang" class="gallery-img">
+                    <img src="Assets/download (3).jpg" alt="Luciano Hang" class="gallery-img large">
                 </div>
             </div>
         </section>
 
-        <!-- Timeline / Historia Havan -->
-        <section id="timeline">
-            <h2 class="section-title">TRAJETÓRIA HAVAN</h2>
+        <!-- Timeline Section -->
+        <section class="timeline-section" id="timeline">
+            <div class="section-header">
+                <h2 class="section-title">Trajetória</h2>
+            </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-year">1986</div>
-                    <p class="timeline-text">Fundação da <strong>Havan</strong> em parceria com <strong>Vanderlei de Limas</strong>. O nome "Havan" é a junção dos nomes <strong>Hang</strong> + <strong>Vanderlei</strong>. Tudo começou como uma pequena loja de tecidos em Brusque-SC.</p>
+                    <p class="timeline-text">Fundação da <strong>Havan</strong> em parceria com <strong>Vanderlei de Limas</strong>. O nome "Havan" é a junção dos nomes <strong>Hang</strong> + <strong>Vanderlei</strong>. Tudo começou como uma pequena loja de tecidos em Brusque, Santa Catarina.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">Anos 2000</div>
-                    <p class="timeline-text">A Havan adotou seu estilo arquitetônico característico: fachada inspirada na <strong>Casa Branca</strong> e uma réplica da <strong>Estátua da Liberdade</strong> na entrada. Cada loja tornou-se um ponto turístico!</p>
+                    <p class="timeline-text">A Havan adotou seu estilo arquitetônico icônico: fachada inspirada na <strong>Casa Branca</strong> e uma réplica da <strong>Estátua da Liberdade</strong> na entrada. Cada loja tornou-se um ponto turístico pelo Brasil!</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-year">Expansão Nacional</div>
-                    <p class="timeline-text">De uma pequena loja de tecidos para presença em quase todos os estados brasileiros. Mais de <strong>900 lojas</strong> empreendendo milhares de brasileiros.</p>
+                    <div class="timeline-year">Expansão</div>
+                    <p class="timeline-text">De uma pequena loja de tecidos para presença em quase todos os estados brasileiros. Mais de <strong>900 lojas</strong> gerando milhares de empregos e oportunidades.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2023</div>
-                    <p class="timeline-text">Reconhecimento internacional: listado pela <strong>Forbes</strong> como um dos maiores empresários do Brasil, com fortuna estimada em US$ 3,2 bilhões.</p>
+                    <p class="timeline-text">Reconhecimento internacional: listado pela <strong>Forbes</strong> como um dos maiores empresários do Brasil, com patrimônio estimado em <strong>US$ 3,2 bilhões</strong>.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Conquistas -->
+        <!-- Achievements Section -->
         <section class="achievements" id="achievements">
-            <h2 class="section-title">CONQUISTAS</h2>
+            <div class="section-header">
+                <h2 class="section-title">Conquistas</h2>
+            </div>
             <div class="achievements-grid">
                 <div class="achievement-card">
                     <div class="achievement-icon">🏪</div>
@@ -928,41 +1055,45 @@
             </div>
         </section>
 
-        <!-- Projetos Sociais -->
-        <section class="social-projects" id="social">
-            <h2 class="section-title">RESPONSABILIDADE SOCIAL</h2>
+        <!-- Social Projects -->
+        <section class="social-section" id="social">
+            <div class="section-header">
+                <h2 class="section-title">Responsabilidade Social</h2>
+            </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="Assets/images.jpg" alt="Projeto Social" class="project-img">
+                    <img src="Assets/images.jpg" alt="Projeto Social" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">🧢 Capacete Azul</h3>
                         <p class="project-desc">Programa de distribuição de capacetes para motoqueiros. Segurança em primeiro lugar!</p>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="Assets/images (1).jpg" alt="Projeto Bolsa" class="project-img">
+                    <img src="Assets/images (1).jpg" alt="Bolsa de Estudos" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">🎓 Bolsas de Estudo</h3>
                         <p class="project-desc">Programa de bolsas para estudantes brilhantes que merecem oportunidade.</p>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="Assets/download (4).jpg" alt="Doacoes" class="project-img">
+                    <img src="Assets/download (4).jpg" alt="Doações" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">🏠 Doações</h3>
-                        <p class="project-desc">Campanhas contínuas de doações de alimentos e itens essenciais para famílias carentes.</p>
+                        <p class="project-desc">Campanhas contínuas de doações de alimentos e itens essenciais.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- RS Ayuda Enchente 2024 -->
-        <section class="rs-help">
-            <h2 class="section-title">🌧️ AJUDA AO RS - 2024</h2>
+        <!-- RS Help -->
+        <section class="rs-help" id="rs-help">
+            <div class="section-header">
+                <h2 class="section-title">🌧️ Ajuda ao RS - 2024</h2>
+            </div>
             <div class="rs-content">
                 <div class="rs-text">
                     <p>Em maio de 2024, o <strong>Rio Grande do Sul</strong> enfrentou a maior tragédia climática de sua história. Luciano Hang mobilizou uma operação de ajuda humanitária para apoiar as vítimas.</p>
-                    <p>Além das doações financeiras, a estrutura logística da empresa foi utilizada para distribuir suprimentos essenciais às famílias afetadas.</p>
+                    <p>Além das doações financeiras, a estrutura logística da empresa foi utilizada para distribuir suprimentos essenciais às famílias afetadas pela enchente.</p>
                     <div class="rs-stats">
                         <div class="rs-stat">
                             <div class="rs-stat-number">R$ 5M</div>
@@ -978,7 +1109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="rs-images">
+                <div class="rs-gallery">
                     <img src="Assets/images.jpg" alt="Ajuda RS" class="rs-img">
                     <img src="Assets/images (1).jpg" alt="Ajuda RS" class="rs-img">
                     <img src="Assets/download (1).jpg" alt="Ajuda RS" class="rs-img">
@@ -987,35 +1118,37 @@
             </div>
         </section>
 
-        <!-- Nova Loja Taquara -->
+        <!-- Taquara -->
         <section class="taquara" id="taquara">
-            <h2 class="section-title">🏪 NOVA LOJA TAQUARA</h2>
-            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+            <div class="section-header">
+                <h2 class="section-title">🏪 Nova Loja Taquara</h2>
+            </div>
+            <p class="taquara-desc">
                 <strong>30 de maio de 2025</strong> marca a abertura da nova unidade em Taquara, Rio Grande do Sul. Um marco importante para a região que tanto precisa de empregos e desenvolvimento econômico.
             </p>
             <div class="taquara-date">30 DE MAIO DE 2025</div>
             <div class="taquara-info">
                 <div class="taquara-item">
                     <div class="taquara-icon">📍</div>
-                    <div class="taquara-text">CENTRO DE TAQUARA</div>
+                    <div class="taquara-text">Centro de Taquara</div>
                 </div>
                 <div class="taquara-item">
                     <div class="taquara-icon">🅿️</div>
-                    <div class="taquara-text">ESTACIONAMENTO</div>
+                    <div class="taquara-text">Estacionamento</div>
                 </div>
                 <div class="taquara-item">
                     <div class="taquara-icon">💼</div>
-                    <div class="taquara-text">50 EMPREGOS</div>
+                    <div class="taquara-text">50 Empregos</div>
                 </div>
             </div>
-            <a href="#" class="taquara-cta">VEM COMERÇAR! 🔥</a>
+            <a href="#" class="cta-button" style="margin-top: 3rem; background: var(--brand-yellow); color: var(--brand-blue);">VEM COMERÇAR! 🔥</a>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-logo">LUCIANO <span>HANG</span></div>
-        <p class="footer-copy">© 2025 - Trajetória Empresarial | Feito com 💚 brasileiro</p>
+        <p class="footer-text">© 2025 - Trajetória Empresarial | Feito com 💚 brasileiro</p>
     </footer>
 </body>
 </html>
