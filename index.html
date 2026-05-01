@@ -6,58 +6,33 @@
     <title>Luciano Hang | Trajetória Empresarial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-blue: #002776;
-            --brand-blue-dark: #001a4d;
-            --brand-green: #009c3b;
-            --brand-green-dark: #007a2f;
-            --brand-green-suit: #0a5c36;
-            --brand-yellow: #ffdf00;
+            --blue: #002776;
+            --blue-dark: #001a4d;
+            --green: #009c3b;
+            --green-dark: #007a2f;
+            --yellow: #ffdf00;
             --white: #ffffff;
-            --black: #0a0a0a;
             --cream: #faf8f5;
-            --gold: #c9a227;
+            --black: #0a0a0a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         
         body {
             font-family: 'Montserrat', sans-serif;
             background: var(--cream);
             color: var(--black);
-            overflow-x: hidden;
         }
         
-        /* Elegant Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(0,39,118,0.03) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(0,156,59,0.03) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        /* Premium Header */
+        /* Header */
         header {
-            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
-            padding: 1.2rem 8%;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            padding: 1rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -66,63 +41,41 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            border-bottom: 3px solid var(--brand-yellow);
-            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--yellow);
         }
         
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--white);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
         
-        .logo span {
-            color: var(--brand-yellow);
-        }
+        .logo span { color: var(--yellow); }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         nav a {
             color: rgba(255,255,255,0.85);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            padding: 0.5rem 0;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
         
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--brand-yellow);
-            transition: width 0.3s;
-        }
+        nav a:hover { color: var(--yellow); }
         
-        nav a:hover {
-            color: var(--brand-yellow);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section - Luxury */
+        /* Hero */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(180deg, var(--brand-blue) 0%, var(--brand-blue-dark) 60%, #000814 100%);
+            background: linear-gradient(180deg, var(--blue) 0%, var(--blue-dark) 60%, var(--black) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -133,580 +86,244 @@
             overflow: hidden;
         }
         
-        /* Animated Background Elements */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                repeating-linear-gradient(
-                    60deg,
-                    transparent,
-                    transparent 60px,
-                    rgba(255,223,0,0.02) 60px,
-                    rgba(255,223,0,0.02) 120px
-                );
-            animation: diagonalMove 30s linear infinite;
-        }
-        
-        @keyframes diagonalMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(120px, 120px); }
-        }
-        
-        /* Floating Particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--brand-yellow);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 15s infinite;
-        }
-        
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 70%; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 80%; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 90%; animation-delay: 5s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
-        }
-        
-        /* Premium Avatar */
-        .avatar-container {
+        /* Avatar com PNG transparente - animação simplificada */
+        .avatar-wrapper {
             position: relative;
-            margin: 3rem 0;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin: 2rem 0;
         }
         
         .avatar {
-            position: relative;
-            width: 200px;
-            height: 320px;
-            animation: walkCycle 1s ease-in-out infinite;
-        }
-        
-        @keyframes walkCycle {
-            0%, 100% { transform: translateY(0) rotate(-1deg); }
-            50% { transform: translateY(-15px) rotate(1deg); }
-        }
-        
-        /* Head */
-        .head {
-            position: absolute;
-            width: 75px;
-            height: 85px;
-            background: linear-gradient(180deg, #edd5c5, #d4b8a5);
-            border-radius: 40px 40px 30px 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .hair {
-            position: absolute;
-            width: 85px;
-            height: 28px;
-            background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
-            border-radius: 45px 45px 0 0;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .glasses {
-            position: absolute;
-            width: 55px;
-            height: 16px;
-            background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
-            top: 42px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 3px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-        
-        .smile {
-            position: absolute;
-            width: 28px;
-            height: 10px;
-            border: 2px solid #c8102e;
-            border-top: none;
-            border-left: none;
-            border-radius: 0 0 50% 0;
-            top: 65px;
-            left: 50%;
-            transform: translateX(-50%) rotate(10deg);
-        }
-        
-        /* Body - Premium Green Suit */
-        .body {
-            position: absolute;
-            width: 110px;
-            height: 150px;
-            background: linear-gradient(180deg, var(--brand-green-suit), #073d26);
-            border-radius: 20px 20px 10px 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 70px;
-            box-shadow: 
-                inset 0 -5px 15px rgba(0,0,0,0.2),
-                0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .shirt {
-            position: absolute;
-            width: 110px;
-            height: 85px;
-            background: linear-gradient(180deg, #ffffff, #f0f0f0);
-            border-radius: 18px 18px 0 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .tie {
-            width: 12px;
-            height: 55px;
-            background: linear-gradient(180deg, #c8102e, #9a0d24);
-            clip-path: polygon(30% 0, 70% 0, 100% 100%, 0% 100%);
-        }
-        
-        /* Arms */
-        .arm {
-            position: absolute;
-            width: 24px;
-            height: 85px;
-            background: linear-gradient(180deg, var(--brand-green-suit), #073d26);
-            border-radius: 12px;
-            top: 95px;
-            transform-origin: top center;
-        }
-        
-        .arm.left {
-            left: 10px;
-            animation: swingLeft 1s ease-in-out infinite;
-        }
-        
-        .arm.right {
-            right: 10px;
-            animation: swingRight 1s ease-in-out infinite;
-        }
-        
-        @keyframes swingLeft {
-            0%, 100% { transform: rotate(15deg); }
-            50% { transform: rotate(-15deg); }
-        }
-        
-        @keyframes swingRight {
-            0%, 100% { transform: rotate(-15deg); }
-            50% { transform: rotate(15deg); }
-        }
-        
-        /* Legs */
-        .leg {
-            position: absolute;
-            width: 32px;
-            height: 70px;
-            background: linear-gradient(180deg, var(--brand-green-suit), #073d26);
-            bottom: 0;
-            border-radius: 10px;
-            transform-origin: top center;
-        }
-        
-        .leg.left {
-            left: 32px;
-            animation: walkLeft 1s ease-in-out infinite;
-        }
-        
-        .leg.right {
-            right: 32px;
-            animation: walkRight 1s ease-in-out infinite;
-        }
-        
-        @keyframes walkLeft {
-            0%, 100% { transform: rotate(12deg); }
-            50% { transform: rotate(-12deg); }
+            width: 280px;
+            height: auto;
+            /* Animação de caminhar usando translateX */
+            animation: walkRight 8s ease-in-out infinite;
         }
         
         @keyframes walkRight {
-            0%, 100% { transform: rotate(-12deg); }
-            50% { transform: rotate(12deg); }
+            0% { transform: translateX(-30px); }
+            50% { transform: translateX(30px); }
+            100% { transform: translateX(-30px); }
         }
         
-        .shoe {
-            position: absolute;
-            width: 42px;
-            height: 16px;
-            background: #0a0a0a;
-            border-radius: 10px 10px 5px 5px;
-            bottom: -4px;
-        }
-        
-        .leg.left .shoe { left: -5px; }
-        .leg.right .shoe { right: -5px; }
-        
-        /* Name Section */
+        /* Nome com efeito de aparecer */
         .name-section {
-            position: relative;
-            margin-top: 2.5rem;
-            animation: fadeInUp 1s ease-out 0.3s both;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.5s forwards;
         }
         
-        .name-section::before {
-            content: '';
-            position: absolute;
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 70px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--brand-yellow));
-            border-radius: 2px;
-            animation: pullLine 1s ease-in-out infinite;
-        }
-        
-        @keyframes pullLine {
-            0%, 100% { transform: translateY(-50%) scaleX(0.8); }
-            50% { transform: translateY(-50%) scaleX(1.2); }
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
         
         .name {
             font-family: 'Playfair Display', serif;
-            font-size: 5.5rem;
+            font-size: 4.5rem;
             font-weight: 900;
-            color: var(--brand-yellow);
-            text-shadow: 
-                3px 3px 0 var(--brand-green),
-                6px 6px 0 var(--brand-blue),
-                12px 12px 30px rgba(0,0,0,0.4);
-            letter-spacing: 8px;
-            line-height: 1;
+            color: var(--yellow);
+            text-shadow: 2px 2px 0 var(--green), 4px 4px 0 var(--blue);
+            letter-spacing: 6px;
         }
         
         .name span {
             color: var(--white);
             display: block;
-            font-size: 3.5rem;
-            letter-spacing: 15px;
-            margin-top: 0.2rem;
+            font-size: 2.8rem;
+            letter-spacing: 12px;
         }
         
         .tagline {
-            font-size: 1rem;
             color: rgba(255,255,255,0.8);
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-top: 1.5rem;
-            font-weight: 300;
+            letter-spacing: 3px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
         }
         
-        .cta-button {
-            margin-top: 2.5rem;
-            background: linear-gradient(135deg, var(--brand-green), var(--brand-green-dark));
+        .cta {
+            margin-top: 2rem;
+            background: var(--green);
             color: var(--white);
-            padding: 1.2rem 3.5rem;
-            font-size: 0.9rem;
+            padding: 1rem 2.5rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
+            letter-spacing: 2px;
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.4s;
-            box-shadow: 0 5px 20px rgba(0,156,59,0.3);
-            animation: fadeInUp 1s ease-out 0.6s both;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,156,59,0.4);
+        .cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,156,59,0.4);
         }
         
-        /* Section Styles */
-        section {
-            padding: 6rem 8%;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        /* Sections */
+        section { padding: 5rem 8%; }
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: var(--brand-blue);
-            position: relative;
-            display: inline-block;
+            color: var(--blue);
+            text-align: center;
+            margin-bottom: 3rem;
         }
         
         .section-title::after {
             content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
+            display: block;
+            width: 50px;
             height: 3px;
-            background: var(--brand-green);
+            background: var(--green);
+            margin: 10px auto 0;
         }
         
-        /* Origins Section */
-        .origins {
-            background: var(--white);
-        }
+        /* Origins */
+        .origins { background: var(--white); }
         
-        .origins-content {
+        .origins-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
         .origins-text p {
-            font-size: 1.05rem;
-            line-height: 1.9;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
             color: #333;
-            margin-bottom: 1.5rem;
         }
         
-        .quote-box {
-            background: linear-gradient(135deg, var(--brand-yellow), #ffe066);
-            padding: 2rem;
-            border-left: 4px solid var(--brand-blue);
-            margin-top: 2rem;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+        .quote {
+            background: var(--yellow);
+            padding: 1.5rem;
+            border-left: 4px solid var(--blue);
             font-weight: 700;
             font-style: italic;
-            color: var(--brand-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 1.5rem;
         }
         
-        .origins-gallery {
+        .origins-imgs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         
-        .gallery-img {
+        .origins-img {
             width: 100%;
-            height: 180px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 12px;
-            transition: all 0.4s;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
         
-        .gallery-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-        
-        .gallery-img.large {
-            grid-column: span 2;
-            height: 220px;
-        }
-        
-        /* Timeline Section */
-        .timeline-section {
-            background: linear-gradient(180deg, #f8f6f3, var(--cream));
-        }
+        /* Timeline */
+        .timeline-section { background: var(--cream); }
         
         .timeline {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
-            position: relative;
-            padding-left: 50px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--brand-green), var(--brand-blue));
+            padding-left: 30px;
+            border-left: 3px solid var(--green);
         }
         
         .timeline-item {
+            margin-bottom: 2rem;
             position: relative;
-            margin-bottom: 3rem;
-            padding: 1.5rem 2rem;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-        }
-        
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -43px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--brand-green);
-            border: 4px solid var(--white);
+            left: -38px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--green);
             border-radius: 50%;
-            box-shadow: 0 0 0 3px var(--brand-green);
         }
         
         .timeline-year {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--brand-blue);
-            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--blue);
         }
         
         .timeline-text {
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
             color: #444;
+            margin-top: 0.3rem;
+            line-height: 1.6;
         }
         
         /* Achievements */
         .achievements {
-            background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
             color: var(--white);
             text-align: center;
         }
         
-        .achievements .section-title {
-            color: var(--white);
-        }
+        .achievements .section-title { color: var(--white); }
         
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
         .achievement-card {
-            background: rgba(255,255,255,0.08);
-            padding: 2.5rem 1.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
         }
         
-        .achievement-card:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-10px);
-            border-color: var(--brand-yellow);
-        }
-        
-        .achievement-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .achievement-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: var(--brand-yellow);
-            line-height: 1;
+        .achievement-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--yellow);
         }
         
         .achievement-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             opacity: 0.8;
-            margin-top: 0.5rem;
         }
         
-        /* Social Projects */
-        .social-section {
-            background: var(--white);
-        }
+        /* Projects */
+        .projects { background: var(--white); }
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
         .project-card {
-            border-radius: 16px;
+            border: 2px solid var(--green);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s;
         }
         
-        .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-        
-        .project-image {
+        .project-img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
         
-        .project-content {
-            padding: 1.8rem;
-            background: var(--white);
-        }
+        .project-content { padding: 1.2rem; }
         
         .project-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--brand-blue);
-            margin-bottom: 0.8rem;
-        }
-        
-        .project-desc {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
+            font-size: 1.2rem;
+            color: var(--blue);
         }
         
         /* RS Help */
@@ -715,216 +332,99 @@
             color: var(--white);
         }
         
-        .rs-help .section-title {
-            color: var(--white);
-        }
-        
         .rs-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1200px;
+            gap: 3rem;
+            max-width: 1100px;
             margin: 0 auto;
-        }
-        
-        .rs-text p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
+            align-items: center;
         }
         
         .rs-stats {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
         
         .rs-stat {
-            background: var(--brand-green);
-            padding: 1.5rem 2rem;
-            border-radius: 12px;
+            background: var(--green);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
             text-align: center;
-            min-width: 120px;
         }
         
-        .rs-stat-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
-            color: var(--brand-yellow);
+        .rs-stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--yellow);
         }
         
-        .rs-stat-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.9;
-            margin-top: 0.3rem;
-        }
-        
-        .rs-gallery {
+        .rs-imgs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         
         .rs-img {
             width: 100%;
-            height: 150px;
+            height: 130px;
             object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
         }
         
-        /* Taquara Section */
+        /* Taquara */
         .taquara {
-            background: linear-gradient(135deg, var(--brand-green), var(--brand-green-dark));
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
             color: var(--white);
             text-align: center;
-            padding: 6rem 8%;
         }
         
-        .taquara .section-title {
-            color: var(--white);
-        }
+        .taquara .section-title { color: var(--white); }
         
         .taquara-date {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            color: var(--brand-yellow);
-            margin: 2rem 0;
-            letter-spacing: 5px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-        
-        .taquara-desc {
-            font-size: 1.15rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.95;
-            line-height: 1.7;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--yellow);
+            margin: 1.5rem 0;
         }
         
         .taquara-info {
             display: flex;
             justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .taquara-item {
-            text-align: center;
-        }
-        
-        .taquara-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .taquara-text {
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            gap: 3rem;
+            margin-top: 2rem;
         }
         
         /* Footer */
         footer {
             background: var(--black);
             color: var(--white);
-            padding: 3rem 8%;
             text-align: center;
-            border-top: 4px solid var(--brand-green);
+            padding: 2rem;
+            border-top: 4px solid var(--green);
         }
         
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 4px;
+            font-size: 1.5rem;
         }
         
-        .footer-logo span {
-            color: var(--brand-yellow);
-        }
-        
-        .footer-text {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            opacity: 0.6;
-        }
+        .footer-logo span { color: var(--yellow); }
         
         /* Responsive */
-        @media (max-width: 900px) {
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
-            
-            .name {
-                font-size: 3.5rem;
-            }
-            
-            .name span {
-                font-size: 2.2rem;
-                letter-spacing: 8px;
-            }
-            
-            .name-section::before {
-                display: none;
-            }
-            
-            .avatar {
-                transform: scale(0.8);
-            }
-            
-            .origins-content,
-            .rs-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 4rem 5%;
-            }
-            
-            nav ul {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .name {
-                font-size: 2.5rem;
-            }
-            
-            .name span {
-                font-size: 1.6rem;
-                letter-spacing: 5px;
-            }
-            
-            .tagline {
-                font-size: 0.8rem;
-                letter-spacing: 2px;
-            }
-            
-            .achievement-number {
-                font-size: 2.2rem;
-            }
+        @media (max-width: 768px) {
+            .name { font-size: 3rem; }
+            .name span { font-size: 1.8rem; letter-spacing: 6px; }
+            .avatar { width: 200px; }
+            nav ul { display: none; }
+            .origins-grid, .rs-content { grid-template-columns: 1fr; }
+            section { padding: 3rem 5%; }
         }
     </style>
 </head>
 <body>
-    <!-- Header Premium -->
+    <!-- Header -->
     <header>
         <div class="logo">LUCIANO <span>HANG</span></div>
         <nav>
@@ -932,154 +432,116 @@
                 <li><a href="#origins">Origens</a></li>
                 <li><a href="#timeline">Historia</a></li>
                 <li><a href="#achievements">Conquistas</a></li>
-                <li><a href="#social">Projetos</a></li>
+                <li><a href="#projects">Projetos</a></li>
                 <li><a href="#taquara">Taquara</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="hero">
-            <div class="particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
-            
-            <div class="avatar-container">
-                <div class="avatar">
-                    <div class="head">
-                        <div class="hair"></div>
-                        <div class="glasses"></div>
-                        <div class="smile"></div>
-                    </div>
-                    <div class="body">
-                        <div class="shirt">
-                            <div class="tie"></div>
-                        </div>
-                    </div>
-                    <div class="arm left"></div>
-                    <div class="arm right"></div>
-                    <div class="leg left"><div class="shoe"></div></div>
-                    <div class="leg right"><div class="shoe"></div></div>
-                </div>
+            <div class="avatar-wrapper">
+                <!-- Avatar usando imagem PNG transparente -->
+                <img src="Assets/download.jpg" alt="Luciano Hang" class="avatar">
             </div>
             
             <div class="name-section">
-                <div class="name">
+                <h1 class="name">
                     LUCIANO
                     <span>HANG</span>
-                </div>
+                </h1>
             </div>
             
             <p class="tagline">Empreendedor Brasileiro</p>
-            <a href="#origins" class="cta-button">Descubra a Jornada</a>
+            <a href="#origins" class="cta">Descubra a Jornada</a>
         </section>
 
-        <!-- Origins Section -->
+        <!-- Origens -->
         <section class="origins" id="origins">
-            <div class="section-header">
-                <h2 class="section-title">Origens</h2>
-            </div>
-            <div class="origins-content">
+            <h2 class="section-title">Origens</h2>
+            <div class="origins-grid">
                 <div class="origins-text">
-                    <p>Luciano Hang nasceu em <strong>Brusque, Santa Catarina</strong>, em 11 de outubro de 1962. Filho de Regina e Luís Hang, dois trabalhadores dedicados da indústria têxtil, ele cresceu aprendendo desde cedo o valor do trabalho duro e da perseverança.</p>
-                    <p>Seus pais passaram mais de <strong>40 anos</strong> na Fábrica de Tecidos Carlos Renaux, onde Luciano iniciou sua primeira carteira de trabalho. A determinação e o exemplo de sua família tornaram-se a base de toda sua filosofia de vida e negócio.</p>
-                    <div class="quote-box">
-                        "O Brasil que queremos só depende de nós. Cada brasileiro que abre o próprio negócio está construindo um país melhor."
+                    <p>Luciano Hang nasceu em <strong>Brusque, Santa Catarina</strong>, em 11 de outubro de 1962. Filho de Regina e Luís Hang, trabalhadores da indústria têxtil, ele aprendeu desde cedo o valor do trabalho duro.</p>
+                    <p>Seus pais passaram mais de <strong>40 anos</strong> na Fábrica de Tecidos Carlos Renaux, onde Luciano iniciou sua carreira. A determinação familiar tornou-se a base de sua filosofia de vida.</p>
+                    <div class="quote">
+                        "O Brasil que queremos só depende de nós."
                     </div>
                 </div>
-                <div class="origins-gallery">
-                    <img src="Assets/download (1).jpg" alt="Luciano Hang" class="gallery-img">
-                    <img src="Assets/download (2).jpg" alt="Luciano Hang" class="gallery-img">
-                    <img src="Assets/download (3).jpg" alt="Luciano Hang" class="gallery-img large">
+                <div class="origins-imgs">
+                    <img src="Assets/download (1).jpg" alt="Luciano" class="origins-img">
+                    <img src="Assets/download (2).jpg" alt="Luciano" class="origins-img">
+                    <img src="Assets/download (3).jpg" alt="Luciano" class="origins-img" style="grid-column: span 2;">
                 </div>
             </div>
         </section>
 
-        <!-- Timeline Section -->
+        <!-- Timeline -->
         <section class="timeline-section" id="timeline">
-            <div class="section-header">
-                <h2 class="section-title">Trajetória</h2>
-            </div>
+            <h2 class="section-title">Trajetória</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-year">1986</div>
-                    <p class="timeline-text">Fundação da <strong>Havan</strong> em parceria com <strong>Vanderlei de Limas</strong>. O nome "Havan" é a junção dos nomes <strong>Hang</strong> + <strong>Vanderlei</strong>. Tudo começou como uma pequena loja de tecidos em Brusque, Santa Catarina.</p>
+                    <p class="timeline-text">Fundação da <strong>Havan</strong> com <strong>Vanderlei de Limas</strong> (Hang + Vanderlei). Uma pequena loja de tecidos em Brusque-SC.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">Anos 2000</div>
-                    <p class="timeline-text">A Havan adotou seu estilo arquitetônico icônico: fachada inspirada na <strong>Casa Branca</strong> e uma réplica da <strong>Estátua da Liberdade</strong> na entrada. Cada loja tornou-se um ponto turístico pelo Brasil!</p>
+                    <p class="timeline-text">Arquitetura icônica: fachada inspirada na <strong>Casa Branca</strong> e Estátua da Liberdade. Cada loja um ponto turístico!</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">Expansão</div>
-                    <p class="timeline-text">De uma pequena loja de tecidos para presença em quase todos os estados brasileiros. Mais de <strong>900 lojas</strong> gerando milhares de empregos e oportunidades.</p>
+                    <p class="timeline-text">De uma loja para mais de <strong>900 lojas</strong> em todo o Brasil.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2023</div>
-                    <p class="timeline-text">Reconhecimento internacional: listado pela <strong>Forbes</strong> como um dos maiores empresários do Brasil, com patrimônio estimado em <strong>US$ 3,2 bilhões</strong>.</p>
+                    <p class="timeline-text"><strong>Forbes</strong>: 15º empresário mais rico do Brasil, US$ 3,2 bilhões.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Achievements Section -->
+        <!-- Conquistas -->
         <section class="achievements" id="achievements">
-            <div class="section-header">
-                <h2 class="section-title">Conquistas</h2>
-            </div>
+            <h2 class="section-title">Conquistas</h2>
             <div class="achievements-grid">
                 <div class="achievement-card">
-                    <div class="achievement-icon">🏪</div>
-                    <div class="achievement-number">900+</div>
-                    <div class="achievement-label">Lojas pelo Brasil</div>
+                    <div class="achievement-num">900+</div>
+                    <div class="achievement-label">Lojas</div>
                 </div>
                 <div class="achievement-card">
-                    <div class="achievement-icon">👥</div>
-                    <div class="achievement-number">25 MIL</div>
+                    <div class="achievement-num">25K</div>
                     <div class="achievement-label">Colaboradores</div>
                 </div>
                 <div class="achievement-card">
-                    <div class="achievement-icon">💰</div>
-                    <div class="achievement-number">US$ 3.2B</div>
+                    <div class="achievement-num">US$ 3.2B</div>
                     <div class="achievement-label">Patrimônio</div>
                 </div>
                 <div class="achievement-card">
-                    <div class="achievement-icon">🏆</div>
-                    <div class="achievement-number">#15</div>
-                    <div class="achievement-label">Forbes Brasil</div>
+                    <div class="achievement-num">#15</div>
+                    <div class="achievement-label">Forbes</div>
                 </div>
             </div>
         </section>
 
-        <!-- Social Projects -->
-        <section class="social-section" id="social">
-            <div class="section-header">
-                <h2 class="section-title">Responsabilidade Social</h2>
-            </div>
+        <!-- Projetos -->
+        <section class="projects" id="projects">
+            <h2 class="section-title">Responsabilidade Social</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="Assets/images.jpg" alt="Projeto Social" class="project-image">
+                    <img src="Assets/images.jpg" alt="Projeto" class="project-img">
                     <div class="project-content">
                         <h3 class="project-title">🧢 Capacete Azul</h3>
-                        <p class="project-desc">Programa de distribuição de capacetes para motoqueiros. Segurança em primeiro lugar!</p>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="Assets/images (1).jpg" alt="Bolsa de Estudos" class="project-image">
+                    <img src="Assets/images (1).jpg" alt="Projeto" class="project-img">
                     <div class="project-content">
                         <h3 class="project-title">🎓 Bolsas de Estudo</h3>
-                        <p class="project-desc">Programa de bolsas para estudantes brilhantes que merecem oportunidade.</p>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="Assets/download (4).jpg" alt="Doações" class="project-image">
+                    <img src="Assets/download (4).jpg" alt="Projeto" class="project-img">
                     <div class="project-content">
                         <h3 class="project-title">🏠 Doações</h3>
-                        <p class="project-desc">Campanhas contínuas de doações de alimentos e itens essenciais.</p>
                     </div>
                 </div>
             </div>
@@ -1087,68 +549,48 @@
 
         <!-- RS Help -->
         <section class="rs-help" id="rs-help">
-            <div class="section-header">
-                <h2 class="section-title">🌧️ Ajuda ao RS - 2024</h2>
-            </div>
+            <h2 class="section-title" style="color: white;">🌧️ Ajuda ao RS - 2024</h2>
             <div class="rs-content">
                 <div class="rs-text">
-                    <p>Em maio de 2024, o <strong>Rio Grande do Sul</strong> enfrentou a maior tragédia climática de sua história. Luciano Hang mobilizou uma operação de ajuda humanitária para apoiar as vítimas.</p>
-                    <p>Além das doações financeiras, a estrutura logística da empresa foi utilizada para distribuir suprimentos essenciais às famílias afetadas pela enchente.</p>
+                    <p>Em maio de 2024, o <strong>Rio Grande do Sul</strong> enfrentou a maior tragédia climática. Luciano Hang mobilizou ajuda humanitária:</p>
                     <div class="rs-stats">
                         <div class="rs-stat">
-                            <div class="rs-stat-number">R$ 5M</div>
-                            <div class="rs-stat-label">Doados</div>
+                            <div class="rs-stat-num">R$ 5M</div>
                         </div>
                         <div class="rs-stat">
-                            <div class="rs-stat-number">50K</div>
-                            <div class="rs-stat-label">Cestas</div>
+                            <div class="rs-stat-num">50K</div>
                         </div>
                         <div class="rs-stat">
-                            <div class="rs-stat-number">100K</div>
-                            <div class="rs-stat-label">Atendidos</div>
+                            <div class="rs-stat-num">100K</div>
                         </div>
                     </div>
                 </div>
-                <div class="rs-gallery">
-                    <img src="Assets/images.jpg" alt="Ajuda RS" class="rs-img">
-                    <img src="Assets/images (1).jpg" alt="Ajuda RS" class="rs-img">
-                    <img src="Assets/download (1).jpg" alt="Ajuda RS" class="rs-img">
-                    <img src="Assets/download (2).jpg" alt="Ajuda RS" class="rs-img">
+                <div class="rs-imgs">
+                    <img src="Assets/images.jpg" alt="Ajuda" class="rs-img">
+                    <img src="Assets/images (1).jpg" alt="Ajuda" class="rs-img">
+                    <img src="Assets/download (1).jpg" alt="Ajuda" class="rs-img">
+                    <img src="Assets/download (2).jpg" alt="Ajuda" class="rs-img">
                 </div>
             </div>
         </section>
 
         <!-- Taquara -->
         <section class="taquara" id="taquara">
-            <div class="section-header">
-                <h2 class="section-title">🏪 Nova Loja Taquara</h2>
-            </div>
-            <p class="taquara-desc">
-                <strong>30 de maio de 2025</strong> marca a abertura da nova unidade em Taquara, Rio Grande do Sul. Um marco importante para a região que tanto precisa de empregos e desenvolvimento econômico.
+            <h2 class="section-title">🏪 Nova Loja Taquara</h2>
+            <p style="max-width: 600px; margin: 0 auto; opacity: 0.9;">
+                <strong>30 de maio de 2025</strong> - Taquara, Rio Grande do Sul. 50 novos empregos para a região!
             </p>
-            <div class="taquara-date">30 DE MAIO DE 2025</div>
+            <div class="taquara-date">30 DE MAIO 2025</div>
             <div class="taquara-info">
-                <div class="taquara-item">
-                    <div class="taquara-icon">📍</div>
-                    <div class="taquara-text">Centro de Taquara</div>
-                </div>
-                <div class="taquara-item">
-                    <div class="taquara-icon">🅿️</div>
-                    <div class="taquara-text">Estacionamento</div>
-                </div>
-                <div class="taquara-item">
-                    <div class="taquara-icon">💼</div>
-                    <div class="taquara-text">50 Empregos</div>
-                </div>
+                <div>📍 Centro</div>
+                <div>🅿️ Estacionamento</div>
+                <div>💼 50 Empregos</div>
             </div>
-            <a href="#" class="cta-button" style="margin-top: 3rem; background: var(--brand-yellow); color: var(--brand-blue);">VEM COMERÇAR! 🔥</a>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-logo">LUCIANO <span>HANG</span></div>
-        <p class="footer-text">© 2025 - Trajetória Empresarial | Feito com 💚 brasileiro</p>
     </footer>
 </body>
 </html>
