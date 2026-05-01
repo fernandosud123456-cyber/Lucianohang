@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luciano Hang | O Empreendedor</title>
+    <title>Luciano Hang | Trajetória Empresarial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue: #002776;
-            --blue-dark: #001a4d;
-            --green-suit: #0a5c36;
-            --green-dark: #073d26;
-            --yellow: #ffdf00;
-            --skin: #edc9a8;
-            --skin-dark: #d4a78d;
-            --hair: #1a1a1a;
+            --brand-blue: #002776;
+            --brand-blue-dark: #001a4d;
+            --brand-green: #009c3b;
+            --brand-green-dark: #007a2f;
+            --brand-yellow: #ffdf00;
+            --brand-gold: #c9a227;
             --white: #ffffff;
-            --cream: #faf8f5;
+            --cream: #f9f8f6;
+            --charcoal: #2d2d2d;
+            --silver: #8a8a8a;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
         
         body {
             font-family: 'Montserrat', sans-serif;
             background: var(--cream);
-            overflow-x: hidden;
+            color: var(--charcoal);
+            line-height: 1.7;
         }
         
         /* ===== HEADER ===== */
         header {
-            background: linear-gradient(90deg, var(--blue), var(--blue-dark));
-            padding: 1rem 5%;
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
+            padding: 1.2rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,43 +50,63 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            border-bottom: 4px solid var(--yellow);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
         
         .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 800;
             color: var(--white);
             letter-spacing: 2px;
         }
         
-        .logo span { color: var(--yellow); }
+        .logo span {
+            color: var(--brand-yellow);
+        }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
         
         nav a {
-            color: var(--white);
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding: 0.3rem 0;
         }
         
-        nav a:hover { color: var(--yellow); }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-yellow);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--brand-yellow);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
         
         /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             background: 
-                radial-gradient(ellipse at 30% 20%, rgba(255,223,0,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(0,156,59,0.1) 0%, transparent 50%),
-                linear-gradient(180deg, var(--blue) 0%, var(--blue-dark) 50%, #000820 100%);
+                linear-gradient(135deg, rgba(0,39,118,0.97) 0%, rgba(0,26,77,0.98) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>');
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -87,574 +114,327 @@
             text-align: center;
             padding: 8rem 2rem 4rem;
             position: relative;
-            overflow: hidden;
         }
         
-        /* Floating Stars */
-        .stars {
+        /* Decorative Elements */
+        .hero::before {
+            content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,223,0,0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0,156,59,0.08) 0%, transparent 40%);
             pointer-events: none;
         }
         
-        .star {
-            position: absolute;
-            color: var(--yellow);
-            font-size: 1.5rem;
-            animation: twinkle 2s ease-in-out infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
-        }
-        
-        /* ===== AVATAR COMPLETO===== */
-        .scene {
+        /* Avatar Image with floating animation */
+        .avatar-container {
             position: relative;
-            height: 400px;
             margin: 2rem 0;
+            animation: float 4s ease-in-out infinite;
         }
         
-        .avatar-group {
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
         
-        /* Personagem Andando */
-        .person {
-            position: relative;
-            width: 140px;
-            height: 280px;
-            animation: walkBounce 0.4s ease-in-out infinite;
+        .avatar {
+            width: 220px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.4),
+                0 0 0 4px rgba(255,223,0,0.3);
         }
         
-        @keyframes walkBounce {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
+        /* Name */
+        .name-wrapper {
+            margin-top: 2.5rem;
         }
         
-        /* Cabeça */
-        .head {
-            position: absolute;
-            width: 70px;
-            height: 80px;
-            background: radial-gradient(ellipse at 30% 30%, var(--skin), var(--skin-dark));
-            border-radius: 50% 50% 45% 45%;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 30px;
-            border: 2px solid var(--green-suit);
-            z-index: 10;
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: 8px;
+            line-height: 1.1;
         }
         
-        /* Cabelo */
-        .hair {
-            position: absolute;
-            width: 80px;
-            height: 25px;
-            background: var(--hair);
-            border-radius: 50% 50% 0 0;
-            top: 22px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 11;
-        }
-        
-        /* Olhos */
-        .eyes {
-            position: absolute;
-            top: 45px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 12;
-        }
-        
-        .eye {
-            width: 14px;
-            height: 14px;
-            background: var(--white);
-            border-radius: 50%;
-            position: relative;
-            animation: blink 4s ease-in-out infinite;
-        }
-        
-        .eye::before {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: var(--hair);
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
-        }
-        
-        .eye::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--white);
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
-        }
-        
-        @keyframes blink {
-            0%, 96%, 100% { transform: scaleY(1); }
-            98% { transform: scaleY(0.1); }
-        }
-        
-        /* Sobrancelhas */
-        .brows {
-            position: absolute;
-            top: 38px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 12;
-        }
-        
-        .brow {
-            width: 18px;
-            height: 4px;
-            background: var(--hair);
-            border-radius: 2px;
-            transform: rotate(-5deg);
-        }
-        
-        /* Nariz */
-        .nose {
-            position: absolute;
-            top: 58px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 10px;
-            background: var(--skin-dark);
-            border-radius: 50%;
-            z-index: 11;
-        }
-        
-        /* Boca */
-        .mouth {
-            position: absolute;
-            top: 72px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 8px;
-            border: 3px solid #c8102e;
-            border-top: none;
-            border-left: none;
-            border-radius: 0 0 50% 0;
-            z-index: 11;
-            animation: talk 0.3s ease-in-out infinite;
-        }
-        
-        @keyframes talk {
-            0%, 100% { transform: translateX(-50%) scaleY(1); }
-            50% { transform: translateX(-50%) scaleY(1.3); }
-        }
-        
-        /* Corpo - Terno Verde */
-        .body {
-            position: absolute;
-            width: 90px;
-            height: 130px;
-            background: linear-gradient(180deg, var(--green-suit), var(--green-dark));
-            border-radius: 15px 15px 10px 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 50px;
-            z-index: 5;
-        }
-        
-        /* Camisa */
-        .shirt {
-            position: absolute;
-            width: 90px;
-            height: 75px;
-            background: var(--white);
-            border-radius: 12px 12px 0 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        /* Gravata */
-        .tie {
-            width: 12px;
-            height: 50px;
-            background: linear-gradient(180deg, #c8102e, #9a0d24);
-            clip-path: polygon(30% 0, 70% 0, 100% 100%, 0% 100%);
-            animation: tieSwing 0.4s ease-in-out infinite;
-        }
-        
-        @keyframes tieSwing {
-            0%, 100% { transform: rotate(5deg); }
-            50% { transform: rotate(-5deg); }
-        }
-        
-        /* Botões */
-        .buttons {
-            position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .btn {
-            width: 8px;
-            height: 8px;
-            background: var(--green-dark);
-            border-radius: 50%;
-        }
-        
-        /* Braços */
-        .arm {
-            position: absolute;
-            width: 20px;
-            height: 70px;
-            background: var(--green-suit);
-            border-radius: 10px;
-            top: 80px;
-            transform-origin: top center;
-        }
-        
-        .arm.left {
-            left: 2px;
-            animation: swingLeft 0.4s ease-in-out infinite;
-        }
-        
-        .arm.right {
-            right: 2px;
-            animation: swingRight 0.4s ease-in-out infinite;
-        }
-        
-        @keyframes swingLeft {
-            0%, 100% { transform: rotate(20deg); }
-            50% { transform: rotate(-20deg); }
-        }
-        
-        @keyframes swingRight {
-            0%, 100% { transform: rotate(-20deg); }
-            50% { transform: rotate(20deg); }
-        }
-        
-        /* Pernas */
-        .leg {
-            position: absolute;
-            width: 26px;
-            height: 60px;
-            background: var(--green-suit);
-            bottom: 0;
-            border-radius: 8px;
-            transform-origin: top center;
-        }
-        
-        .leg.left {
-            left: 25px;
-            animation: walkLeft 0.4s ease-in-out infinite;
-        }
-        
-        .leg.right {
-            right: 25px;
-            animation: walkRight 0.4s ease-in-out infinite;
-        }
-        
-        @keyframes walkLeft {
-            0%, 100% { transform: rotate(15deg); }
-            50% { transform: rotate(-15deg); }
-        }
-        
-        @keyframes walkRight {
-            0%, 100% { transform: rotate(-15deg); }
-            50% { transform: rotate(15deg); }
-        }
-        
-        .shoe {
-            position: absolute;
-            width: 36px;
-            height: 14px;
-            background: #1a1a1a;
-            border-radius: 8px 8px 4px 4px;
-            bottom: -4px;
-        }
-        
-        .leg.left .shoe { left: -5px; }
-        .leg.right .shoe { right: -5px; }
-        
-        /* ===== LETRAS SENDO EMPURRADAS ===== */
-        .letters-container {
-            position: relative;
-            display: flex;
-            gap: 0;
-            margin-top: 3rem;
-            height: 80px;
-        }
-        
-        .letter {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 55px;
-            height: 70px;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 3.5rem;
-            color: var(--yellow);
-            text-shadow: 
-                3px 3px 0 var(--green),
-                6px 6px 0 var(--blue),
-                10px 10px 20px rgba(0,0,0,0.5);
-            opacity: 0;
-            animation: letterAppear 0.3s ease-out forwards;
-        }
-        
-        .letter:nth-child(1) { animation-delay: 0.5s; }
-        .letter:nth-child(2) { animation-delay: 0.7s; }
-        .letter:nth-child(3) { animation-delay: 0.9s; }
-        .letter:nth-child(4) { animation-delay: 1.1s; }
-        .letter:nth-child(5) { animation-delay: 1.3s; }
-        .letter:nth-child(6) { animation-delay: 1.5s; }
-        .letter:nth-child(7) { animation-delay: 1.7s; }
-        
-        @keyframes letterAppear {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px) rotate(-20deg);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0) rotate(0deg);
-            }
+        .name-sub {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--brand-yellow);
+            letter-spacing: 20px;
+            margin-top: 0.5rem;
         }
         
         .tagline {
-            font-size: 1.1rem;
-            color: var(--white);
+            font-size: 1rem;
+            color: rgba(255,255,255,0.75);
             text-transform: uppercase;
             letter-spacing: 4px;
             margin-top: 1.5rem;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 2s forwards;
+            font-weight: 300;
         }
         
-        @keyframes fadeIn {
-            to { opacity: 0.9; }
-        }
-        
-        .cta {
-            margin-top: 2rem;
-            background: var(--yellow);
-            color: var(--blue);
+        .cta-btn {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, var(--brand-green), var(--brand-green-dark));
+            color: var(--white);
             padding: 1rem 2.5rem;
-            font-weight: 800;
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-decoration: none;
             border-radius: 50px;
             display: inline-block;
-            transition: all 0.3s;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 2.5s forwards;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0,156,59,0.3);
         }
         
-        .cta:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(255,223,0,0.4);
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,156,59,0.4);
         }
         
         /* ===== SECTIONS ===== */
         section {
-            padding: 5rem 8%;
+            padding: 6rem 8%;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
         
         .section-title {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--blue);
-            text-align: center;
-            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+            position: relative;
+            display: inline-block;
         }
         
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 50px;
             height: 4px;
-            background: var(--green);
-            margin: 10px auto 0;
+            background: var(--brand-green);
+            margin: 15px auto 0;
+            border-radius: 2px;
         }
         
         /* Origins */
-        .origins { background: var(--white); }
+        .origins {
+            background: var(--white);
+        }
         
-        .origins-content {
+        .origins-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1100px;
+            gap: 4rem;
+            max-width: 1200px;
             margin: 0 auto;
             align-items: center;
         }
         
+        .origins-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--brand-blue);
+            margin-bottom: 1.5rem;
+        }
+        
         .origins-text p {
             font-size: 1rem;
-            line-height: 1.8;
+            color: var(--charcoal);
             margin-bottom: 1rem;
-            color: #333;
+            opacity: 0.85;
         }
         
-        .quote {
-            background: var(--yellow);
-            padding: 1.5rem;
-            border-left: 4px solid var(--blue);
-            font-weight: 700;
+        .quote-box {
+            background: linear-gradient(135deg, #fff9e6, #fff3cc);
+            padding: 2rem;
+            border-left: 4px solid var(--brand-yellow);
+            margin-top: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
             font-style: italic;
-            margin-top: 1.5rem;
+            color: var(--brand-blue);
         }
         
-        .imgs {
+        .origins-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
+            gap: 1rem;
         }
         
-        .img {
+        .origins-img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
-        .img:hover { transform: scale(1.05); }
+        .origins-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .origins-img.large {
+            grid-column: span 2;
+        }
         
         /* Timeline */
-        .timeline-bg { background: var(--cream); }
+        .timeline-section {
+            background: var(--cream);
+        }
         
         .timeline {
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
-            padding-left: 30px;
-            border-left: 3px solid var(--green);
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--brand-green), var(--brand-blue));
         }
         
         .timeline-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--white);
-            border-radius: 12px;
             position: relative;
-            transition: all 0.3s;
+            padding-left: 70px;
+            padding-bottom: 3rem;
         }
         
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .timeline-item:last-child {
+            padding-bottom: 0;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -38px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            background: var(--green);
+            left: 15px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--brand-green);
+            border: 4px solid var(--cream);
             border-radius: 50%;
-            border: 3px solid var(--white);
         }
         
         .timeline-year {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
-            color: var(--blue);
+            font-weight: 700;
+            color: var(--brand-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-text {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+            line-height: 1.7;
         }
         
         /* Achievements */
         .achievements {
-            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
             color: var(--white);
             text-align: center;
         }
         
-        .achievements .section-title { color: var(--white); }
+        .achievements .section-title {
+            color: var(--white);
+        }
         
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
         }
         
         .achievement-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid var(--yellow);
-            transition: all 0.3s;
-        }
-        
-        .achievement-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.15);
+            padding: 2rem 1.5rem;
         }
         
         .achievement-num {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
-            color: var(--yellow);
+            font-weight: 800;
+            color: var(--brand-yellow);
+            line-height: 1;
+        }
+        
+        .achievement-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.8;
+            margin-top: 0.5rem;
         }
         
         /* Projects */
-        .projects { background: var(--white); }
+        .projects {
+            background: var(--white);
+        }
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
         
         .project-card {
-            border: 2px solid var(--green);
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
         }
         
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
         
         .project-img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
         }
         
-        .project-content { padding: 1.2rem; }
+        .project-info {
+            padding: 1.5rem;
+            background: var(--white);
+        }
         
         .project-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
-            color: var(--blue);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-blue);
         }
         
         /* RS Help */
@@ -663,98 +443,209 @@
             color: var(--white);
         }
         
+        .rs-help .section-title {
+            color: var(--white);
+        }
+        
         .rs-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             max-width: 1100px;
             margin: 0 auto;
             align-items: center;
         }
         
+        .rs-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .rs-text p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 1rem;
+        }
+        
         .rs-stats {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
         
         .rs-stat {
-            background: var(--green);
-            padding: 1rem 1.5rem;
+            background: var(--brand-green);
+            padding: 1.5rem 2rem;
             border-radius: 10px;
             text-align: center;
+            min-width: 110px;
         }
         
         .rs-stat-num {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            color: var(--yellow);
+            font-weight: 800;
+            color: var(--brand-yellow);
         }
         
-        .rs-imgs {
+        .rs-stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-top: 0.3rem;
+        }
+        
+        .rs-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
+            gap: 1rem;
         }
         
         .rs-img {
             width: 100%;
-            height: 130px;
+            height: 150px;
             object-fit: cover;
             border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.15);
         }
         
         /* Taquara */
         .taquara {
-            background: linear-gradient(135deg, var(--green-suit), var(--green-dark));
+            background: linear-gradient(135deg, var(--brand-green), var(--brand-green-dark));
             color: var(--white);
             text-align: center;
         }
         
-        .taquara .section-title { color: var(--white); }
-        
-        .taquara-date {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            color: var(--yellow);
-            margin: 1.5rem 0;
-            animation: pulse 1.5s ease-in-out infinite;
+        .taquara .section-title {
+            color: var(--white);
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .taquara-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--brand-yellow);
+            margin: 1.5rem 0;
+            letter-spacing: 3px;
+        }
+        
+        .taquara-desc {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .taquara-info {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 4rem;
+            margin-top: 2.5rem;
+        }
+        
+        .taquara-item {
+            text-align: center;
+        }
+        
+        .taquara-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .taquara-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         /* Footer */
         footer {
-            background: #0a0a0a;
-            color: var(--white);
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.7);
             text-align: center;
-            padding: 2rem;
-            border-top: 4px solid var(--green);
+            padding: 2.5rem;
+            border-top: 4px solid var(--brand-green);
         }
         
         .footer-logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--white);
         }
         
-        .footer-logo span { color: var(--yellow); }
+        .footer-logo span {
+            color: var(--brand-yellow);
+        }
+        
+        .footer-text {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
         
         /* Responsive */
-        @media (max-width: 768px) {
-            .letter { font-size: 2.5rem; width: 40px; height: 55px; }
-            .person { transform: scale(0.8); }
-            nav ul { display: none; }
-            .origins-content, .rs-content { grid-template-columns: 1fr; }
-            section { padding: 3rem 5%; }
+        @media (max-width: 900px) {
+            .name {
+                font-size: 3.2rem;
+                letter-spacing: 4px;
+            }
+            
+            .name-sub {
+                font-size: 2rem;
+                letter-spacing: 10px;
+            }
+            
+            .avatar {
+                width: 180px;
+            }
+            
+            .origins-grid,
+            .rs-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            section {
+                padding: 4rem 5%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .name-sub {
+                font-size: 1.5rem;
+                letter-spacing: 5px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .achievement-num {
+                font-size: 2rem;
+            }
+            
+            .taquara-date {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -776,195 +667,181 @@
     <main>
         <!-- Hero -->
         <section class="hero">
-            <!-- Estrelas -->
-            <div class="stars">
-                <span class="star" style="top: 10%; left: 10%;">★</span>
-                <span class="star" style="top: 20%; left: 80%; animation-delay: 0.5s;">★</span>
-                <span class="star" style="top: 60%; left: 15%; animation-delay: 1s;">★</span>
-                <span class="star" style="top: 40%; left: 90%; animation-delay: 1.5s;">★</span>
-                <span class="star" style="top: 70%; left: 70%; animation-delay: 0.8s;">★</span>
+            <div class="avatar-container">
+                <img src="Assets/download.jpg" alt="Luciano Hang" class="avatar">
             </div>
             
-            <!-- Cenário -->
-            <div class="scene">
-                <div class="avatar-group">
-                    <div class="person">
-                        <!-- Cabeça -->
-                        <div class="head">
-                            <div class="hair"></div>
-                            <div class="brows">
-                                <span class="brow"></span>
-                                <span class="brow"></span>
-                            </div>
-                            <div class="eyes">
-                                <span class="eye"></span>
-                                <span class="eye"></span>
-                            </div>
-                            <div class="nose"></div>
-                            <div class="mouth"></div>
-                        </div>
-                        
-                        <!-- Corpo -->
-                        <div class="body">
-                            <div class="shirt">
-                                <div class="tie"></div>
-                            </div>
-                            <div class="buttons">
-                                <span class="btn"></span>
-                                <span class="btn"></span>
-                                <span class="btn"></span>
-                            </div>
-                        </div>
-                        
-                        <!-- Membros -->
-                        <div class="arm left"></div>
-                        <div class="arm right"></div>
-                        <div class="leg left"><div class="shoe"></div></div>
-                        <div class="leg right"><div class="shoe"></div></div>
-                    </div>
-                </div>
+            <div class="name-wrapper">
+                <h1 class="name">LUCIANO</h1>
+                <div class="name-sub">HANG</div>
             </div>
-            
-            <!-- Letras sendo empurradas -->
-            <div class="letters-container">
-                <span class="letter" style="color: #ff6b6b;">L</span>
-                <span class="letter" style="color: #ffd93d;">U</span>
-                <span class="letter" style="color: #6bcb77;">C</span>
-                <span class="letter" style="color: #4d96ff;">I</span>
-                <span class="letter" style="color: #ff6b6b;">A</span>
-                <span class="letter" style="color: #ffd93d;">N</span>
-                <span class="letter" style="color: #6bcb77;">O</span>
-            </div>
-            
-            <h1 class="name" style="font-family: 'Permanent Marker', cursive; font-size: 5rem; color: var(--yellow); text-shadow: 4px 4px 0 var(--green), 8px 8px 0 var(--blue); margin-top: 0.5rem;">
-                HANG
-            </h1>
             
             <p class="tagline">Empreendedor Brasileiro</p>
-            <a href="#origins" class="cta">Descubra a Jornada</a>
+            <a href="#origins" class="cta-btn">Descubra a Jornada</a>
         </section>
 
         <!-- Origins -->
         <section class="origins" id="origins">
-            <h2 class="section-title">Origens</h2>
-            <div class="origins-content">
+            <div class="section-header">
+                <h2 class="section-title">Origens</h2>
+            </div>
+            <div class="origins-grid">
                 <div class="origins-text">
-                    <p>Luciano Hang nasceu em <strong>Brusque, Santa Catarina</strong>, em 11 de outubro de 1962. Filho de Regina e Luís Hang, trabalhadores da indústria têxtil, ele aprendeu desde cedo o valor do trabalho duro.</p>
-                    <p>Seus pais passaram mais de <strong>40 anos</strong> na Fábrica de Tecidos Carlos Renaux. A determinação familiar tornou-se a base de sua filosofia de vida.</p>
-                    <div class="quote">
+                    <h3>Um Brasileiro que transformationa realidades</h3>
+                    <p>Luciano Hang nasceu em <strong>Brusque, Santa Catarina</strong>, em 11 de outubro de 1962. Filho de Regina e Luís Hang, dedicados trabalhadores da indústria têxtil, ele aprendeu desde cedo que o sucesso vem com muito trabalho e determinação.</p>
+                    <p>Seus pais passaram mais de <strong>40 anos</strong> na Fábrica de Tecidos Carlos Renaux, onde Luciano iniciou sua carreira. A ética de trabalho da sua família tornou-se a base de toda sua filosofia de vida.</p>
+                    <div class="quote-box">
                         "O Brasil que queremos só depende de nós."
                     </div>
                 </div>
-                <div class="imgs">
-                    <img src="Assets/download (1).jpg" alt="Luciano" class="img">
-                    <img src="Assets/download (2).jpg" alt="Luciano" class="img">
-                    <img src="Assets/download (3).jpg" alt="Luciano" class="img" style="grid-column: span 2;">
+                <div class="origins-images">
+                    <img src="Assets/download (1).jpg" alt="Luciano Hang" class="origins-img">
+                    <img src="Assets/download (2).jpg" alt="Luciano Hang" class="origins-img">
+                    <img src="Assets/download (3).jpg" alt="Luciano Hang" class="origins-img large">
                 </div>
             </div>
         </section>
 
         <!-- Timeline -->
-        <section class="timeline-bg" id="timeline">
-            <h2 class="section-title">Trajetória</h2>
+        <section class="timeline-section" id="timeline">
+            <div class="section-header">
+                <h2 class="section-title">Trajetória</h2>
+            </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-year">1986</div>
-                    <p>Fundação da <strong>Havan</strong> com <strong>Vanderlei de Limas</strong> (Hang + Vanderlei). Uma pequena loja de tecidos em Brusque-SC.</p>
+                    <p class="timeline-text">Fundação da <strong>Havan</strong> em parceria com <strong>Vanderlei de Limas</strong>. O nome "Havan" é a junção dos nomes <strong>Hang</strong> + <strong>Vanderlei</strong>. Tudo começou como uma pequena loja de tecidos em Brusque, Santa Catarina.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">Anos 2000</div>
-                    <p>Arquitetura icônica: fachada inspirada na <strong>Casa Branca</strong> e Estátua da Liberdade. Cada loja um ponto turístico!</p>
+                    <p class="timeline-text">A Havan adotou seu estilo arquitetônico icônico: fachada inspirada na <strong>Casa Branca</strong> e uma réplica da <strong>Estátua da Liberdade</strong> na entrada. Cada loja tornou-se um ponto turístico!</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-year">Expansão</div>
-                    <p>De uma loja para mais de <strong>900 lojas</strong> em todo o Brasil.</p>
+                    <div class="timeline-year">Expansão Nacional</div>
+                    <p class="timeline-text">De uma pequena loja de tecidos para presença em quase todos os estados brasileiros. Mais de <strong>900 lojas</strong> gerando milhares de empregos e oportunidades.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2023</div>
-                    <p><strong>Forbes</strong>: 15º empresário mais rico do Brasil, US$ 3,2 bilhões.</p>
+                    <p class="timeline-text">Reconhecimento internacional: listado pela <strong>Forbes</strong> como um dos maiores empresários do Brasil, com patrimônio estimado em <strong>US$ 3,2 bilhões</strong>.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Conquistas -->
+        <!-- Achievements -->
         <section class="achievements" id="achievements">
-            <h2 class="section-title">Conquistas</h2>
+            <div class="section-header">
+                <h2 class="section-title">Conquistas</h2>
+            </div>
             <div class="achievements-grid">
                 <div class="achievement-card">
                     <div class="achievement-num">900+</div>
-                    <div>Lojas</div>
+                    <div class="achievement-label">Lojas pelo Brasil</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-num">25K</div>
-                    <div>Colaboradores</div>
+                    <div class="achievement-label">Colaboradores</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-num">US$ 3.2B</div>
-                    <div>Patrimônio</div>
+                    <div class="achievement-label">Patrimônio</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-num">#15</div>
-                    <div>Forbes</div>
+                    <div class="achievement-label">Forbes Brasil</div>
                 </div>
             </div>
         </section>
 
-        <!-- Projetos -->
+        <!-- Projects -->
         <section class="projects" id="projects">
-            <h2 class="section-title">Responsabilidade Social</h2>
+            <div class="section-header">
+                <h2 class="section-title">Responsabilidade Social</h2>
+            </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="Assets/images.jpg" alt="Projeto" class="project-img">
-                    <div class="project-content"><h3 class="project-title">🧢 Capacete Azul</h3></div>
+                    <img src="Assets/images.jpg" alt="Projeto Social" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">🧢 Capacete Azul</h3>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <img src="Assets/images (1).jpg" alt="Projeto" class="project-img">
-                    <div class="project-content"><h3 class="project-title">🎓 Bolsas de Estudo</h3></div>
+                    <img src="Assets/images (1).jpg" alt="Bolsa de Estudos" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">🎓 Bolsas de Estudo</h3>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <img src="Assets/download (4).jpg" alt="Projeto" class="project-img">
-                    <div class="project-content"><h3 class="project-title">🏠 Doações</h3></div>
+                    <img src="Assets/download (4).jpg" alt="Doações" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">🏠 Doações</h3>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- RS Help -->
-        <section class="rs-help" id="rs-help">
-            <h2 class="section-title" style="color: white;">🌧️ Ajuda ao RS - 2024</h2>
+        <section class="rs-help">
+            <div class="section-header">
+                <h2 class="section-title">🌧️ Ajuda ao RS - 2024</h2>
+            </div>
             <div class="rs-content">
                 <div class="rs-text">
-                    <p>Em maio de 2024, o <strong>Rio Grande do Sul</strong> enfrentou a maior tragédia climática. Luciano Hang mobilizou ajuda humanitária:</p>
+                    <h3>Solidariedade em ação</h3>
+                    <p>Em maio de 2024, o <strong>Rio Grande do Sul</strong> enfrentou a maior tragédia climática de sua história. Luciano Hang mobilizou uma operação de ajuda humanitária para apoiar as vítimas.</p>
+                    <p>Além das doações financeiras, a estrutura logística da empresa foi utilizada para distribuir suprimentos essenciais às famílias afetadas.</p>
                     <div class="rs-stats">
-                        <div class="rs-stat"><div class="rs-stat-num">R$ 5M</div></div>
-                        <div class="rs-stat"><div class="rs-stat-num">50K</div></div>
-                        <div class="rs-stat"><div class="rs-stat-num">100K</div></div>
+                        <div class="rs-stat">
+                            <div class="rs-stat-num">R$ 5M</div>
+                            <div class="rs-stat-label">Doados</div>
+                        </div>
+                        <div class="rs-stat">
+                            <div class="rs-stat-num">50K</div>
+                            <div class="rs-stat-label">Cestas</div>
+                        </div>
+                        <div class="rs-stat">
+                            <div class="rs-stat-num">100K</div>
+                            <div class="rs-stat-label">Atendidos</div>
+                        </div>
                     </div>
                 </div>
-                <div class="rs-imgs">
-                    <img src="Assets/images.jpg" alt="Ajuda" class="rs-img">
-                    <img src="Assets/images (1).jpg" alt="Ajuda" class="rs-img">
-                    <img src="Assets/download (1).jpg" alt="Ajuda" class="rs-img">
-                    <img src="Assets/download (2).jpg" alt="Ajuda" class="rs-img">
+                <div class="rs-images">
+                    <img src="Assets/images.jpg" alt="Ajuda RS" class="rs-img">
+                    <img src="Assets/images (1).jpg" alt="Ajuda RS" class="rs-img">
+                    <img src="Assets/download (1).jpg" alt="Ajuda RS" class="rs-img">
+                    <img src="Assets/download (2).jpg" alt="Ajuda RS" class="rs-img">
                 </div>
             </div>
         </section>
 
         <!-- Taquara -->
-        <section class="taquara" id="taquara">
-            <h2 class="section-title">🏪 Nova Loja Taquara</h2>
-            <p style="opacity: 0.9;">30 de maio de 2026 - Taquara, Rio Grande do Sul</p>
+        <section class="taquara">
+            <div class="section-header">
+                <h2 class="section-title">🏪 Nova Loja Taquara</h2>
+            </div>
+            <p class="taquara-desc">
+                <strong>30 de maio de 2026</strong> marca a abertura da nova unidade em Taquara, Rio Grande do Sul. Um marco importante para a região que tanto precisa de empregos e desenvolvimento econômico.
+            </p>
             <div class="taquara-date">30 DE MAIO 2026</div>
             <div class="taquara-info">
-                <div>📍 Centro</div>
-                <div>🅿️ Estacionamento</div>
-                <div>💼 50 Empregos</div>
+                <div class="taquara-item">
+                    <div class="taquara-icon">📍</div>
+                    <div class="taquara-label">Centro de Taquara</div>
+                </div>
+                <div class="taquara-item">
+                    <div class="taquara-icon">🅿️</div>
+                    <div class="taquara-label">Estacionamento</div>
+                </div>
+                <div class="taquara-item">
+                    <div class="taquara-icon">💼</div>
+                    <div class="taquara-label">50 Empregos</div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-logo">LUCIANO <span>HANG</span></div>
-        <p style="margin-top: 0.5rem; opacity: 0.6;">© 2026 - Trajetória Empresarial</p>
+        <p class="footer-text">© 2026 - Trajetória Empresarial</p>
     </footer>
 </body>
 </html>
